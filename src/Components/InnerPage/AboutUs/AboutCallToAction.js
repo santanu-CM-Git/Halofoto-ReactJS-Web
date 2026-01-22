@@ -3,6 +3,7 @@ import Svg from '../../Image/Svg.js';
 import { Link } from 'react-router-dom'
 import '../../LandingPage/CallToAction.css'
 import Parser from 'html-react-parser';
+import { STORAGE_BASE_URL } from '../../../config/apiConfig'
 
 const AboutCallToAction = props => {
   const homeCtaData = props.aboutCtaData
@@ -24,7 +25,7 @@ const AboutCallToAction = props => {
     <div className='container'>
       <div className='cta__main__inner'>
       <div className='image__wrap'>
-        <img src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/pages/${homeCtaData.about_image}`} alt='' />
+        <img src={`${STORAGE_BASE_URL}/storage/pages/${homeCtaData.about_image}`} alt='' />
       </div>
       <div className='content__wrap'>
         <div className='content__wrap__inner'>

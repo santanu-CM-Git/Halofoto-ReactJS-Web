@@ -10,6 +10,7 @@ import instagram from '../../Image/instagram.svg'
 import './Footer.css'
 import { HaloFotoApi } from '../../../Api/api'
 import AppDownload from '../AppDownload/AppDownload'
+import { STORAGE_BASE_URL } from '../../../config/apiConfig'
 
 const Footer = () => {
     const image = {
@@ -36,7 +37,7 @@ const Footer = () => {
                 <div className='container-xxl'>
                     <div className='footer__brand'>
                         {data?.footer != undefined && (
-                            <img src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/site_settings/${data.footer.light_logo}`} alt='' />
+                            <img src={`${STORAGE_BASE_URL}/storage/site_settings/${data.footer.light_logo}`} alt='' />
                         )}
                     </div>
                     <div className='footer__content'>

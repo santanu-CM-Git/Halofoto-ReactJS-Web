@@ -4,7 +4,7 @@ import "./Navbar.css"
 import useSticky from "../../../Hooks/useSticky"
 import { HaloFotoApi } from "../../../Api/api"
 import { AuthContext } from "../../Authentication/store/authContext"
-import { API_BASE_URL } from "../../../config/apiConfig"
+import { API_BASE_URL, STORAGE_BASE_URL } from "../../../config/apiConfig"
 import app_store from '../../Image/app_store_logo.svg.jpg'
 import play_store from '../../Image/play_store_logo.svg.jpg'
 
@@ -59,7 +59,7 @@ const Navbar = () => {
           <div className="container-xxl">
             <Link to="/" className="navbar-brand navbar__brand">
               <img
-                src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/site_settings/${data.header.logo}`}
+                src={`${STORAGE_BASE_URL}/storage/site_settings/${data.header.logo}`}
                 alt="no content"
               />
             </Link>

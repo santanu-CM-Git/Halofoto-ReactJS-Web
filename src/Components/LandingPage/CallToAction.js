@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './CallToAction.css'
 import Parser from 'html-react-parser';
 import '../Common/css/loader.css'
+import { STORAGE_BASE_URL } from '../../config/apiConfig'
 
 const CallToAction = props => {
   const homeCtaData = props.homeCtaData  
@@ -15,7 +16,7 @@ const CallToAction = props => {
     <div className='container-xxl'>
       <div className='cta__main__inner'>
       <div className='image__wrap'>
-        <img src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/pages/${homeCtaData?.about_background_image}`} alt='' />
+        <img src={`${STORAGE_BASE_URL}/storage/pages/${homeCtaData?.about_background_image}`} alt='' />
       </div>
       <div className='content__wrap'>
         <div className='content__wrap__inner'>

@@ -8,6 +8,7 @@ import Banner from "../../Common/Banner/Banner";
 import Parser from "html-react-parser";
 import { HaloFotoApi } from "../../../Api/api";
 import { Link } from "react-router-dom";
+import { STORAGE_BASE_URL } from "../../../config/apiConfig";
 
 const ContactUs = () => {
   const [data, setData] = useState([]);
@@ -54,7 +55,7 @@ const ContactUs = () => {
                   <div className="contact__info__card">
                     <div className="ico__box">
                       <img
-                        src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/pages/${data.description.contact_image1}`}
+                        src={`${STORAGE_BASE_URL}/storage/pages/${data.description.contact_image1}`}
                         alt=""
                       />
                     </div>
@@ -68,7 +69,7 @@ const ContactUs = () => {
                   <div className="contact__info__card">
                     <div className="ico__box">
                       <img
-                        src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/pages/${data.description.contact_image2}`}
+                        src={`${STORAGE_BASE_URL}/storage/pages/${data.description.contact_image2}`}
                         alt=""
                       />
                     </div>
@@ -82,7 +83,7 @@ const ContactUs = () => {
                   <div className="contact__info__card">
                     <div className="ico__box">
                       <img
-                        src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/pages/${data.description.contact_image3}`}
+                        src={`${STORAGE_BASE_URL}/storage/pages/${data.description.contact_image3}`}
                         alt=""
                       />
                     </div>

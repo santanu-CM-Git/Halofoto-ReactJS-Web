@@ -64,7 +64,7 @@ const HaloStoryDetails = (props) => {
                       data?.story?.video_podcast?.length > 0 && (
                         <div className="media__card media__video">
                           <div className="video__play__wrapp">
-                            {/* href={`http://103.191.208.50/~gewlisca/halofoto_new/storage/halo_story/${e.video_podcast}` */}
+                            {/* href={`${STORAGE_BASE_URL}/storage/halo_story/${e.video_podcast}` */}
                             <a
                               data-bs-toggle="modal"
                               data-bs-target={`#staticBackdrop${data?.story?.id}`}

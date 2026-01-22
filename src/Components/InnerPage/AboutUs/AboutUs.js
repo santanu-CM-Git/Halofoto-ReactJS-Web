@@ -7,6 +7,7 @@ import { HaloFotoApi } from '../../../Api/api'
 import Parser from 'html-react-parser';
 import AboutCallToAction from './AboutCallToAction'
 import '../../Common/css/loader.css'
+import { STORAGE_BASE_URL } from '../../../config/apiConfig'
 
 const AboutUs = () => {
   const [data, setData] = useState([]);
@@ -35,7 +36,7 @@ const AboutUs = () => {
             <div className='row'>
               <div className='col-xl-6 col-lg-6'>
                 <div className='image__box'>
-                  <img src={`http://103.191.208.50/~gewlisca/halofoto_new/storage/pages/${data.description.product_background_image}`} alt='' />
+                  <img src={`${STORAGE_BASE_URL}/storage/pages/${data.description.product_background_image}`} alt='' />
                 </div>
               </div>
               <div className='col-xl-6 col-lg-6'>
