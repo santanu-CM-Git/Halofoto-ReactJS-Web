@@ -1,0 +1,26 @@
+.blog__details__navigation{display:flex; justify-content:space-between; margin-top:70px; width: 100%}
+.blog__details__navigation .blog__single__navigation a{font-size:16px; color:#000; font-weight:500; display:block; line-height:normal;}
+.blog__details__navigation .blog__single__navigation a span{font-size:16px; color:#000; font-weight:600; color:#0082ED; text-transform:capitalize; margin:0px 0px; display:block; clear:both; margin-bottom:10px;
+background-color:#F4F8FF; max-width:175px; height:65px; display:flex; align-items:center; justify-content:space-between; border-radius:8px; padding:7px 20px 7px 7px;}
+
+.blog__details__navigation .blog__single__navigation__prev{background-color:#F4F8FF; max-width:175px; height:65px; display:flex; align-items:center; justify-content:space-around; border-radius:8px; padding:7px 7px 7px 7px; width:177px;}
+.blog__details__navigation .blog__single__navigation__prev i.ico__box{background-color:#8E5FAF; height:50px; width:50px; display:flex; align-items:center; justify-content:center; border-radius:4px; margin-right:20px;}
+.blog__details__navigation .blog__single__navigation__prev i.ico__box svg{fill:#fff; transform:rotate(180deg)}
+
+.blog__details__navigation .blog__single__navigation__prev:hover{background-color:#8E5FAF; color: #fff;}
+.blog__details__navigation .blog__single__navigation__prev:hover i.ico__box{background-color:#F4F8FF}
+.blog__details__navigation .blog__single__navigation__prev:hover i.ico__box svg{fill:#000;}
+
+
+.blog__details__navigation .blog__single__navigation__next{background-color:#F4F8FF; max-width:175px; height:65px; display:flex; align-items:center; justify-content:space-around; border-radius:8px; border-radius:8px; padding:7px 7px 7px 7px; width:177px;}
+.blog__details__navigation .blog__single__navigation__next i.ico__box{background-color:#8E5FAF; height:50px; width:50px; display:flex; align-items:center; justify-content:center; border-radius:4px; margin-left:20px;}
+.blog__details__navigation .blog__single__navigation__next i.ico__box svg{fill:#fff;}
+
+.blog__details__navigation .blog__single__navigation__next:hover{background-color:#8E5FAF;color: #fff;}
+.blog__details__navigation .blog__single__navigation__next:hover i.ico__box{background-color:#F4F8FF}
+.blog__details__navigation .blog__single__navigation__next:hover i.ico__box svg{fill:#000;}
+
+.blog__details__navigation .blog__single__navigation{background-color:#F4F8FF; max-width:175px; width:33px; height:33px;  border-radius:8px; padding:7px 7px 7px 7px; margin:10px; display:flex; justify-content:center; align-items:center;}
+.blog__details__navigation .blog__single__navigation__active{background-color:#8E5FAF ;color:#fff; max-width:175px; width:33px; height:33px;  border-radius:8px; padding:7px 7px 7px 7px; margin:10px; display:flex; justify-content:center; align-items:center;}
+
+.blog__details__navigation .blog__details__navigation__outer{display:flex; align-items:center; justify-content:space-between;}

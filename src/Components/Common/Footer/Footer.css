@@ -1,0 +1,33 @@
+.footer__main{background-color:black; padding-top:40px; padding-bottom:15px;display: block;}
+.footer__main .footer__brand{display:flex; justify-content:center; margin-bottom:50px;}
+.footer__main .footer__brand img{height:61px; width:142px;}
+.footer__main .footer__content{display:flex; justify-content:center;align-items:center}
+.footer__main .footer__content ul{display:flex; list-style:none; padding:0px; margin:0px; justify-content:center;}
+.footer__main .footer__content ul li{display:flex; align-items:center; padding:0px;}
+.footer__main .footer__content ul li:after{height:10px; width:1px; margin:0px 30px; background-color:#706f6f; content:'';}
+.footer__main .footer__content ul li:last-child:after{display:none;}
+.footer__main .footer__content ul li a{font-size:16px; font-weight:500; color:#B4B4B4; display:flex; align-items:center; margin:0; display:flex; align-items:center; border-bottom-color:transparent; border-bottom-width:1px; border-bottom-style:solid;}
+.footer__main .footer__content ul li a:hover{color:#0082ED;}
+.footer__main .footer__bottom{list-style:none; margin:0; padding-top:60px; display:flex; justify-content:space-between; align-items:center;}
+.footer__main .footer__bottom .footer__copyright{margin-bottom:inherit; flex:1;}
+.footer__main .footer__bottom .footer__social__media{margin-bottom:inherit; flex:1;}
+.footer__main .footer__bottom .footer__terms__policy{margin-bottom:inherit; flex:1;}
+.footer__main .footer__bottom .footer__copyright p{color:#B4B4B4; font-weight:500; font-size:15px;}
+.footer__main .footer__bottom .footer__social__media ul{display:flex; list-style:none; padding:0px; margin:0px; justify-content:center;}
+.footer__main .footer__bottom .footer__social__media ul li{display:flex; align-items:center; padding:0px 5px;}
+.footer__main .footer__bottom .footer__terms__policy ul{display:flex; justify-content:flex-end; list-style:none; padding:10px; margin:10px;}
+.footer__main .footer__bottom .footer__terms__policy ul li{display:flex; align-items:center;}
+.footer__main .footer__bottom .footer__terms__policy ul li:after{height:10px; width:1px; margin:0px 10px; background-color:#706f6f; content:'';}
+.footer__main .footer__bottom .footer__terms__policy ul li:last-child:after{display:none;}
+.footer__main .footer__bottom .footer__terms__policy ul li a{color:#B4B4B4; font-size:16px; font-weight:500;}
+.footer__main .footer__bottom .footer__terms__policy ul li a:hover{color:#0082ED;}
+
+
+.footer__main .footer__content .user__info__login{margin:0px 0px 0px auto; padding:0; display:flex;}
+.footer__main .footer__content .user__info__login a{color:#fff; font-size:16px; position:relative; text-transform:uppercase; padding:0px; display:flex; height:50px; background-color:#0082ed; border-radius:200px; width:50px; transition:all .6s ease-in-out;}
+.footer__main .footer__content .user__info__login a i.ico__box{width:100%; height:100%; display:flex; align-items:center; justify-content:center; transition:all .6s ease-in-out;}
+.footer__main .footer__content .user__info__login a i.ico__box img{height:20px; width:20px; transition:all .6s ease-in-out;}
+
+
+.footer__main .footer__content .user__info__login a{font-size:14px; border-radius:5px; width:auto; height:35px; padding:0px 15px; display:flex; align-items:center; justify-content:center; border:0px;}
+.footer__main .footer__content .user__info__login a:hover{background-color:#6A0DAD;}

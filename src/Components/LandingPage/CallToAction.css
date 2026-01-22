@@ -1,0 +1,17 @@
+.cta__main{margin:130px 0px; padding:0px; display:block; clear:both;}
+.cta__main__inner{display:flex; margin:0px 50px; background-color:#0082ED; border-radius:0px 50px 0px 50px; overflow:hidden; box-shadow:0px 0px 15px 0px rgba(0,0,0,0.25);}
+.cta__main .image__wrap{clip-path:polygon(0 0, 99% 0%, 50% 190%, 0% 100%); max-width:750px; flex:0 0 750px; max-height:285px;}
+.cta__main .image__wrap img{height:100%; width:100%; object-fit:cover;}
+.cta__main .content__wrap{padding:15px}
+.cta__main .content__wrap .content__wrap__inner{padding-top:20px; color:#fff; margin-bottom:10px;}
+.cta__main .content__wrap .content__wrap__inner h2{font-size:25px; text-transform:uppercase; margin-bottom:15px;}
+.cta__main .content__wrap .content__wrap__inner p{color:#fff; text-transform:capitalize;}
+.cta__main .content__wrap .btn__wrapp{display:flex; align-items:center}
+.cta__main .content__wrap .btn__wrapp a{background-color:#fff; border-radius:5px; font-size:12px; text-transform:uppercase; color:#000; width:215px; height:55px; display:flex; align-items:center; justify-content:center; border:0px;}
+.cta__main .content__wrap .btn__wrapp a:hover{background-color:#fff;}
+.cta__main .content__wrap .btn__wrapp a .ico__box{display:flex; align-items:center;width:15px; margin-left:10px;}
+.cta__main .content__wrap .btn__wrapp a .ico__box svg{fill:rgb(0, 0, 0);}
+.cta__main .content__wrap .btn__wrapp a:hover{color:#0082ED;}
+.cta__main .content__wrap .btn__wrapp a:hover .ico__box svg{fill:#0082ED;}   
+
+/* clip-path:polygon(45% 0, 100% 0%, 100% 100%, 0% 100%); */

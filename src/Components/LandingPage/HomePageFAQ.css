@@ -1,0 +1,28 @@
+.faq__wrapp{padding:0px 0px; margin:0px 0px; border-radius:0px 0px 250px 0px; padding:130px 0px 130px; background-color:#fff;
+box-shadow:0px 0px 15px 0px rgba(0,0,0,0.10);}
+.faq__wrapp h2{margin:0px auto 20px; text-align:center; text-transform:uppercase;}
+.faq__wrapp .center__heading__wrapp .divider__line{margin:0px 0px 10px 0px; padding:0px; display:block; clear:both;}
+.faq__wrapp .center__heading__wrapp .divider__line:before{width:108px; height:2px; background-color:#0082ED; margin:0px auto; padding:0px;
+content:''; display:block;}
+.faq__wrapp .center__heading__wrapp .divider__line:after{width:75px; height:2px; background-color:#6A0DAD; margin:-12px auto 0px; padding:0px;
+content:''; display:block;}
+.faq__wrapp p{max-width:850px; margin:0px auto; text-align:center;}
+.faq__wrapp .faq__wrapp__inner{margin-top:50px;}
+.faq__wrapp .accordion-button:not(.collapsed){background-color:#fff; color:#151515;}
+.faq__wrapp .accordion-button:focus{border-color:transparent; box-shadow:none;}
+.faq__wrapp .accordion-button{font-size:18px; font-weight:500; color:#151515; padding:0px 20px 0px 40px;}
+.faq__wrapp .faq__accordion__body{padding:20px; margin-top:-1px; background-color:#FAFAFA;}
+.faq__wrapp .faq__accordion__body p{margin-bottom:10px; max-width:unset; text-align:left;}
+.faq__wrapp .accordion__header{margin-bottom:0px; display:flex; max-height:60px; overflow:hidden; background-color:#fff; position:relative; z-index:1; box-shadow:0px 0px 15px 0px rgba(0,0,0,0.10);}
+.faq__wrapp .faq__accordion__item{box-shadow:0px 0px 15px 0px rgba(0,0,0,0.10); margin-bottom:20px; border:none; border-radius:10px 10px 10px 0px; overflow:hidden; counter-increment:css-counter 1;}
+.faq__wrapp .faq__accordion .faq__accordion__item .accordion__header:before{content:''; height:70px; width:90px; border-radius:0px 0px 70px 0px; background-color:#0082ED; content: ""counter(css-counter) ""; font-weight:600; font-size:20px; color:#fff; display:flex; justify-content:center; padding-top:16px;}
+.faq__wrapp .panel-title > a:before {float:right !important; font-family:FontAwesome; content:"\f068"; padding-right:5px;}
+.faq__wrapp .panel-title > a.collapsed:before {float:right !important; content:"\f067";}
+.panel-title > a:hover, .panel-title > a:active, .panel-title > a:focus{text-decoration:none;}
+.accordion-button:not(.collapsed){box-shadow:none;}
+.accordion-button:after{
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 128 128' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg%3E%3Cpath id='Down_Arrow_4_' d='m64 88c-1.023 0-2.047-.391-2.828-1.172l-32-32c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l29.172 29.172 29.172-29.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-32 32c-.781.781-1.805 1.172-2.828 1.172zm64-24c0-35.289-28.711-64-64-64s-64 28.711-64 64 28.711 64 64 64 64-28.711 64-64zm-8 0c0 30.879-25.121 56-56 56s-56-25.121-56-56 25.121-56 56-56 56 25.121 56 56z' fill='%23000000' data-original='%23000000' class=''%3E%3C/path%3E%3C/g%3E%3C/svg%3E"); height:20px; width:20px; background-size:100%; transform:rotate(-90deg);}
+.accordion-button:not(.collapsed)::after{
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 128 128' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg%3E%3Cpath id='Down_Arrow_4_' d='m64 88c-1.023 0-2.047-.391-2.828-1.172l-32-32c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0l29.172 29.172 29.172-29.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-32 32c-.781.781-1.805 1.172-2.828 1.172zm64-24c0-35.289-28.711-64-64-64s-64 28.711-64 64 28.711 64 64 64 64-28.711 64-64zm-8 0c0 30.879-25.121 56-56 56s-56-25.121-56-56 25.121-56 56-56 56 25.121 56 56z' fill='%230082ED' data-original='%23000000' class=''%3E%3C/path%3E%3C/g%3E%3C/svg%3E"); height:20px; width:20px; background-size:100%; transform:rotate(0deg);
+}
+

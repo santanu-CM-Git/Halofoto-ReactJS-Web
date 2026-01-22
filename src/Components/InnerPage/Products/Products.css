@@ -1,0 +1,34 @@
+.innerpage__product__wrap{margin:130px 0px; display:block; clear:both; padding:0px 0px; background-color:#fff;}
+.innerpage__product__wrap .product__list__row{margin-left:-20px; margin-right:-20px;}
+.innerpage__product__wrap .product__card__wrapp{display:block; margin-top: 90px;}
+.search__wrapp{margin-bottom:0px;}
+.search__wrapp .form__group{margin:0px auto; padding:0px 0px 0px 0px; display:flex; justify-content:space-between; height:75px; border:1px solid #0082ED; border-radius:10px; box-shadow:0px 0px 15px 0px rgba(0,0,0,0.10); max-width:950px;}
+.search__wrapp .form__group .form__control{background-color:transparent; border:0px; border-radius:0px; box-shadow:none; font-size:16px; color:#595959; flex:1; padding:0px 25px;}
+.search__wrapp .form__group .search__btn{border:0px; border-radius:0px 8px 8px 0px; background-color:#0082ED; background-image:url(../../Image/search-ico.svg); background-repeat:no-repeat; background-position:center; background-size:35px; width:155px;}
+.innerpage__product__wrap h2{font-size:30px; margin-top:40px; margin-bottom:20px; line-height:50px; color:#000000; text-align:left; display:flex; align-items:center;}
+.innerpage__product__wrap h2:after{width:75px; height:1px; background-color:#0082ED; margin:0px 0px 0px 10px; padding:0px;
+content:''; display:block;}
+.innerpage__product__wrap .product__card{margin:0px; padding:0px; margin:0px 20px; height:100%; display:flex; flex-direction:column;}
+.innerpage__product__wrap .product__card .image__box{box-shadow:0px 0px 15px 0px rgba(0,0,0,0.10); padding:25px; border-radius:20px; border-color:transparent; border-width:2px; border-style:solid; transition:all .3s ease 0s; text-align:center; height:400px; justify-content:center; align-items:center; display:flex; overflow:hidden}
+.innerpage__product__wrap .product__card .image__box img{width:100%;}
+.innerpage__product__wrap .product__card .image__box:hover{border-color:#8E5FAF; transition:all .3s ease 0s;}
+.innerpage__product__wrap .product__card .product__content{margin-top:25px; display:flex; flex-direction:column;}
+.innerpage__product__wrap .product__card .product__content h3{text-align:left; text-transform:none; margin-bottom:10px; text-align:left; font-size:28px; text-transform:uppercase; font-weight:400; max-height:65px; height:70px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;}
+.innerpage__product__wrap .product__card .product__content h4{text-align:left; font-size:18px; text-transform:uppercase;}
+.innerpage__product__wrap .product__card .product__content h4 a{font-size:20px; font-weight:500; color:#3e3e3e;}
+.innerpage__product__wrap .product__card .product__details{margin:0px 0px 15px; padding:0px; display:flex; align-items:flex-end; justify-content:space-between;}
+.innerpage__product__wrap .product__card .product__details p{margin:0px; font-size:15px; padding-right:25px;} 
+.innerpage__product__wrap .product__card .product__details .price__meta{display:flex;
+   justify-content: flex-start;; width:100%; align-items: center}
+.innerpage__product__wrap .product__card .product__details .price__meta .original_price{font-size:18px;  font-weight:400; border-radius:10px; text-decoration: line-through;margin-right:20px;}
+.innerpage__product__wrap .product__card .product__details .price__meta .selling_price{font-size:20px;  font-weight:700; border-radius:10px; }  
+.innerpage__product__wrap .product__card .product__details .price__meta .original_price_single{font-size:20px;  font-weight:700; border-radius:10px; } 
+.innerpage__product__wrap .product__card .btn__wrap{display:flex; align-items:center;}
+.innerpage__product__wrap .product__card .btn__wrap a{background-color:#fff; border-radius:5px; font-size:15px; text-transform:capitalize; letter-spacing:0.5px; 
+color:#000; width:165px; height:55px; display:flex; align-items:center; justify-content:center; border:2px solid #C8C8C8;}
+.innerpage__product__wrap .product__card .btn__wrap a:hover{background-color:#8E5FAF; border:none;}
+.innerpage__product__wrap .product__card .btn__wrap a .ico__box{display:flex; align-items:center; width:18px; margin-left:5px;}
+.innerpage__product__wrap .product__card .btn__wrap a .ico__box svg{fill:#000;}
+.innerpage__product__wrap .product__card .btn__wrap a:hover{color:#fff;}
+.innerpage__product__wrap .product__card .btn__wrap a:hover .ico__box svg{fill:#fff;}
+

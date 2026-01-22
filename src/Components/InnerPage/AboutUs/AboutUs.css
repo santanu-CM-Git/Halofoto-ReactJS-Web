@@ -1,0 +1,10 @@
+.about__us__details{margin:130px 0px;}
+.about__us__details .image__box{display:flex; justify-content:center; align-items: center; background-color:#F0E1FC; width:510px; height:664px; border-radius: 200px 0px 100px; margin:0px auto;}
+.about__us__details .image__box img{width:277px; height:424px; border-top-left-radius:100px; border-bottom-right-radius:100px}
+.about__us__details h2{color:#414141; font-size:35px; padding:0px 0px; margin:0px 0px 30px; font-weight:700; text-transform:uppercase;}
+.about__us__details .divider__line{margin:0px 0px 30px 0px; padding:0px; display:block; clear:both;}
+.about__us__details .divider__line:before{width:209px; height:2px; background-color:#0082ED; margin:0px; padding:0px;
+content:''; display:block;}
+.about__us__details .divider__line:after{width:150px; height:2px; background-color:#6A0DAD; margin:-12px 0px 0px; padding:0px;
+content:''; display:block;}
+.about__us__details p{color:#505050; font-size:14px; padding:0px; margin:0px 0px 15px; font-weight:400; max-width:694px; line-height:24px;}

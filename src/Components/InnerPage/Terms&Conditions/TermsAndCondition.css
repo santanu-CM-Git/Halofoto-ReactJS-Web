@@ -1,0 +1,9 @@
+
+.cms__main{background-color:#fff; margin:130px 0px; padding:0px; display:block; clear:both; position:relative;}
+.cms__main .heading__wrapp{margin-bottom:30px;}
+.cms__main .heading__wrapp h2{font-size:40px; line-height:60px; color:#3e3e3e; text-transform:uppercase;}
+.cms__main .heading__wrapp .divider__line{margin:0px 0px 10px 0px; padding:0px; display:block; clear:both;}
+.cms__main .heading__wrapp .divider__line:before{width:108px; height:2px; background-color:#0082ED; margin:0px; padding:0px; content:''; display:block;}
+.cms__main .heading__wrapp .divider__line:after{width:75px; height:2px; background-color:#6A0DAD; margin:-12px 0px 0px; padding:0px; content:''; display:block;}
+.cms__main h3{font-size:24px; text-transform:uppercase; margin-bottom:20px; margin-top:40px;}    
+.cms__main p{font-size:16px;}    

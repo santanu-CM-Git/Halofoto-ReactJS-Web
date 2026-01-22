@@ -1,0 +1,113 @@
+.coupon__wrap {
+    width: 100%;
+    padding: 50px 50px 0px 50px;
+    height: 100vh;
+    display: inline-block;
+}
+
+.title-container {
+    width: 100%;
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.membership_form_group {
+    width: 400px;
+    display: flex;
+}
+
+.form_control {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid gray;
+    padding: 0px 10px;
+    color: #333;
+}
+
+.apply_btn {
+    height: 45px;
+    background: #0082ec;
+    color: #ffffff;
+    border: none;
+    padding: 0px 20px;
+    margin-left: 5px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.table_container {
+    margin-top: 50px;
+}
+
+.user_details_view {
+    padding-bottom: 10px;
+}
+
+.user_details_view label {
+    padding-right: 20px;
+    font-size: 18px;
+}
+
+.loading_view {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.coupon_voucher_table table th {
+    background-color: #0082ec;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+.coupon_voucher_table .table > :not(:first-child){
+    border-top: 'none';
+}
+.coupon_voucher_table table td {
+    text-align: center;
+}
+
+.no_data_container {
+    display: flex;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.no_data_container h4 {
+    color: #7d7676;
+    font-size: 20px;
+}
+
+.arrow-select {
+    width: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2016%2016%22%3E%3Cpath%20fill-rule=%22evenodd%22%20d=%22M4.5%207l4%204%204-4z%22%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+    background-size: 20px;
+}
+
+
+.form-group label {
+    padding-bottom: 5px;
+    font-size: 14px;
+}
+
+.form-control {
+    height: 45px !important;
+}
+
+.text_red {
+    color: red;
+}

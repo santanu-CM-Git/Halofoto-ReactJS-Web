@@ -1,0 +1,16 @@
+.halo__story__list{margin:130px 0px 100px; padding:0px; display:block; clear:both;}
+.halo__story__list .story__card{margin:0px; padding:40px 50px; border:1px solid #e5e5e5; box-shadow:0px 0px 15px 0px rgba(0,0,0,0.10);border-radius:20px; background:#FFFFFF; height:100%; display:flex; flex-direction:column; justify-content:space-between; border-width:2px; border-style:solid; border-color:transparent;}
+.halo__story__list .story__card:hover{border-color:#0082ED; box-shadow:0px 0px 15px 0px rgba(0,0,0,0.20);}
+.halo__story__list .story__card .image__box{display:flex;justify-content:center;border:6px solid #f5f5f5; border-radius:100px;height:90px;width:90px;margin:0px auto; overflow:hidden;}
+.halo__story__list .story__card .image__box img{ border-radius:60px; border:1px solid #EBEBEB;}
+.halo__story__list .story__card .story__wrap{padding:0px; display:flex; flex-direction:column; flex:1;}
+.halo__story__list .story__card .story__wrap h3 {text-align:center; font-size:35px; font-weight:400; margin-bottom:20px; margin-top:20px;}
+.halo__story__list .story__card .story__wrap p{text-align:center; line-height:26px; margin-bottom:30px;}
+.halo__story__list .story__card .btn__wrapp{display:flex; align-items:center; justify-content:center; margin-top:auto;}
+.halo__story__list .story__card .btn__wrapp a{background-color:#0082ED; border-radius:10px; font-size:16px; text-transform:uppercase; letter-spacing:0.5px; color:#fff; width:185px; height:50px; display:flex; align-items:center; justify-content:center;}
+.halo__story__list .story__card .btn__wrapp a:hover{background-color:#fff;}
+.halo__story__list .story__card .btn__wrapp a .ico__box{display:flex; align-items:center;width:18px; margin-left:5px;}
+.halo__story__list .story__card .btn__wrapp a .ico__box svg{fill:#fff;}
+.halo__story__list .story__card .btn__wrapp a:hover{color:#0082ED;}
+.halo__story__list .story__card .btn__wrapp a:hover .ico__box svg{fill:#0082ED;}    
+

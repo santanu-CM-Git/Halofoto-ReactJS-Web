@@ -1,0 +1,21 @@
+.header__banner__inner{margin:0px 0px 0px; padding:0; height:560px; background-color:#FCFCFC; position:relative; border-bottom:1px solid #E7E7E7;}
+.header__banner__inner .image__box{display:flex; align-items:center; justify-content:center; padding-right:90px; max-width:1000px; height:100%; margin-left:auto; border-radius:150px 0px 0px 0px; background-color:#fff; box-shadow: -5px -30px 15px 0px rgba(0,0,0,0.05);}
+.header__banner__inner .image__box .image__box__inner{margin:0px 0px 0px 75px; padding:30px 0px 0px; width:650px; height:310px; position:relative; display:flex; align-items:center;}
+.header__banner__inner .image__box .image__box__inner:after{height:100%; width:190px; position:absolute; right:0px; top:0px;
+background-color:#0082ED; border-radius:80px 0px 80px 0px; content:'';} 
+.header__banner__inner .image__box .image__box__inner img{position:relative; z-index:1; max-height:280px;}
+
+
+.header__banner__inner .banner__content{display:flex; align-items:center; position:absolute; width:100%; height:100%; left:0px; top:0px; z-index:1;}
+.header__banner__inner .banner__container__inner .bread__crumb{margin:0 0 20px; padding:0; display:block; clear:both;}
+.header__banner__inner .banner__container__inner .bread__crumb ul{display:flex; align-items:center; list-style:none; margin:0 0 10px; padding:0;}
+.header__banner__inner .banner__container__inner .bread__crumb ul li{color:#858484; font-weight:400; font-size:16px; text-transform:none; display:flex; align-items:center;}
+.header__banner__inner .banner__container__inner .bread__crumb ul li:before{height:1px; width:10px; background-color:#858484; margin:0 10px; content:'';}
+.header__banner__inner .banner__container__inner .bread__crumb ul li:first-child:before{display:none;}
+.header__banner__inner .banner__container__inner .bread__crumb ul li a{color:#858484;}
+.header__banner__inner .banner__container__inner .bread__crumb ul li a:hover{color:#00a3ff;}
+.header__banner__inner .banner__container__inner h1{font-size:50px; padding:0; margin:0; font-weight:600; max-width:640px; position:relative; text-transform:uppercase;}
+
+.header__banner__inner .banner__container__inner .divider__line{margin:10px 0px 10px 0px; padding:0px; display:block; clear:both;}
+.header__banner__inner .banner__container__inner .divider__line:before{width:108px; height:2px; background-color:#0082ED; margin:0px; padding:0px; content:''; display:block;}
+.header__banner__inner .banner__container__inner .divider__line:after{width:75px; height:2px; background-color:#6A0DAD; margin:-12px 0px 0px; padding:0px; content:''; display:block;}

@@ -1,0 +1,11 @@
+.download__content__wrap{margin-top:100px; min-height:80vh;}
+.button__wrap{display:flex; justify-content:space-around; align-items:center}
+.button__text{color:#000; font-size:26px; position:relative;
+    padding: 10px 0;
+    text-transform: unset;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;}

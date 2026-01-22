@@ -1,0 +1,14 @@
+.contact__inner{width:100%; padding:0px; margin-top:130px; margin-bottom:130px;}
+.contact__inner .contact__content{max-width:1280px; margin:0px auto 130px; text-align:center; display:block; clear:both;}
+.contact__inner .contact__content h2{margin-bottom:30px; font-size:32px;}
+.contact__inner .contact__content p{font-size:16px;}
+.contact__inner .contact__info__card{background-color:#fbfbfb; border-radius:15px; padding:0px 40px; margin:0px 20px; position:relative; height:100%; transition:all .3s ease 0; box-shadow:0px 0px 0px 1px #e8e8e8;}
+.contact__inner .contact__info__card .card__content h4{text-transform:uppercase; font-size:20px;}
+.contact__inner .contact__info__card .ico__box{height:80px; width:80px; border-radius:100px; display:flex; align-items:center; justify-content:center; position:absolute; left:0px; right:0px; top:-45px; margin:0px auto; background:rgba(25, 146, 246, 0.10);}
+.contact__inner .contact__info__card .ico__box:before{background-color:#0082ED; height:60px; width:60px; position:absolute; left:0px; top:0px; bottom:0px; right:0px; margin:auto; border-radius:80px; content:'';}
+.contact__inner .contact__info__card .ico__box img{width:36px; height:27px; position:relative; z-index:1;}
+.contact__inner .contact__info__card .card__content{padding:75px 0px 40px; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center;}
+
+.contact__inner .map__wrapp {display:flex; clear:both; align-items:center; flex-direction:column; margin-top:55px;}
+.contact__inner .button__wrapp{height:50px; width:200px; border-radius:50px; margin-top:20px;background-color:#0082ed; color:#fff; border:none; text-transform:uppercase; font-size:17px; font-weight: bold }
+.contact__inner .button__wrapp:hover{background-color:#6A0DAD; transition:all .6s ease-in-out}
