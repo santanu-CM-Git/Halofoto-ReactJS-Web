@@ -164,9 +164,18 @@ const Coupon = () => {
         );
       case '1':
         return (
-          <button type="button" className="btn btn-warning btn-sm">
-            {item?.voucher_code_apply}
-          </button>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <button type="button" className="btn btn-warning btn-sm">
+              {item?.voucher_code_apply}
+            </button>
+            <button 
+              type="button" 
+              className="btn btn-info btn-sm"
+              onClick={() => onApplyVoucherHandle(item.voucher_id)}
+            >
+              View/Edit
+            </button>
+          </div>
         );
       case '2':
         return (
