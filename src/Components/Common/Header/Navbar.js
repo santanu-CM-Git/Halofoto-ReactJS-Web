@@ -4,6 +4,7 @@ import "./Navbar.css"
 import useSticky from "../../../Hooks/useSticky"
 import { HaloFotoApi } from "../../../Api/api"
 import { AuthContext } from "../../Authentication/store/authContext"
+import { API_BASE_URL } from "../../../config/apiConfig"
 import app_store from '../../Image/app_store_logo.svg.jpg'
 import play_store from '../../Image/play_store_logo.svg.jpg'
 
@@ -24,7 +25,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchData = async () => {
       await fetch(
-        `http://103.191.208.50/~gewlisca/halofoto_new/api/seller/edit-profile`,
+        `${API_BASE_URL}/seller/edit-profile`,
         {
           headers: { Authorization: `Bearer ${authCtx.token.token}` },
         }

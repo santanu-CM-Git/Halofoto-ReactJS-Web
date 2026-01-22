@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../../../config/apiConfig';
 
 export async function searchMembershipById(token, user_membership_id) {
     try {
         axios.defaults.withXSRFToken = true;
-        const response = await axios.post(`http://103.191.208.50/~gewlisca/halofoto_new/api/seller/search-membership-id`, {user_membership_id },
+        const response = await axios.post(`${API_BASE_URL}/seller/search-membership-id`, {user_membership_id },
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -22,7 +23,7 @@ export async function searchMembershipById(token, user_membership_id) {
 export async function getVoucherDetails(token, voucher_id) {
     try {
         axios.defaults.withXSRFToken = true;
-        const response = await axios.post(`http://103.191.208.50/~gewlisca/halofoto_new/api/seller/get-voucher-details`, { voucher_id },
+        const response = await axios.post(`${API_BASE_URL}/seller/get-voucher-details`, { voucher_id },
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -59,7 +60,7 @@ export async function addWarranty(token, data) {
     try {
         axios.defaults.withCredentials = true;
         const response = await axios.post(
-            `http://103.191.208.50/~gewlisca/halofoto_new/api/seller/add-warranty`,
+            `${API_BASE_URL}/seller/add-warranty`,
             formData,
             {
                 headers: {
@@ -85,7 +86,7 @@ export async function isCheckWarranty(token, serialNo) {
     try {
         axios.defaults.withCredentials = true;
         const response = await axios.post(
-            `http://103.191.208.50/~gewlisca/halofoto_new/api/seller/check-warranty`,
+            `${API_BASE_URL}/seller/check-warranty`,
             formData,
             {
                 headers: {

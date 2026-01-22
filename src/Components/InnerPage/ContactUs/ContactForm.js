@@ -3,6 +3,7 @@ import './ContactForm.css'
 import Parser from 'html-react-parser';
 import { toast, ToastContainer, Slide } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
+import { API_BASE_URL } from '../../../config/apiConfig'
 
 const ContactForm = props => {
     const formData = props.contactFormData
@@ -22,7 +23,7 @@ const ContactForm = props => {
         e.preventDefault();
         e.persist();
 
-            fetch(`http://103.191.208.50/~gewlisca/halofoto_new/api/contact/save`, {
+            fetch(`${API_BASE_URL}/contact/save`, {
                 method: "POST",
                 body: JSON.stringify({
                     name,

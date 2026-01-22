@@ -3,6 +3,7 @@ import { toast, ToastContainer, Slide } from 'react-toastify';
 import './LoginUser.css'
 import '../Common/css/loader.css'
 import { AuthContext } from './store/authContext';
+import { API_BASE_URL } from '../../config/apiConfig';
 
 const EditProfile = () => {
     const [proifileInfo, setProifileInfo] = useState({ name: '', phone: '' })
@@ -12,7 +13,7 @@ const EditProfile = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            await fetch(`http://103.191.208.50/~gewlisca/halofoto_new/api/seller/edit-profile`, {
+            await fetch(`${API_BASE_URL}/seller/edit-profile`, {
                 headers: { Authorization: `Bearer ${authCtx.token.token}` }
             }).then(response => response.json())
                 .then(data => {
@@ -38,7 +39,7 @@ const EditProfile = () => {
 
         let headers = new Headers(),
             formdata = new FormData(),
-            url = `http://103.191.208.50/~gewlisca/halofoto_new/api/seller/update-profile`;
+            url = `${API_BASE_URL}/seller/update-profile`;
 
         headers.append("Authorization", `Bearer ${authCtx.token.token}`);
         formdata.append("name", `${proifileInfo.name}`);

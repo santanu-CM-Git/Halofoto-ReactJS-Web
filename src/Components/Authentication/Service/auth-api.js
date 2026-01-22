@@ -1,7 +1,8 @@
+import { API_BASE_URL } from '../../../config/apiConfig';
 
 export async function login(email, password) {
 
-    let data = await fetch(`http://103.191.208.50/~gewlisca/halofoto_new/api/seller/seller-login`, {
+    let data = await fetch(`${API_BASE_URL}/seller/seller-login`, {
         method: "POST",
         body: JSON.stringify({
             email,

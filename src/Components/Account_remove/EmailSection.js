@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer, Slide } from 'react-toastify'
 import '../Common/css/loader.css'
 import axios from 'axios'
+import { API_BASE_URL } from '../../config/apiConfig'
 
 const EmailSection = ({ setShowNavbarAndFooter }) => {
 
@@ -38,7 +39,7 @@ const EmailSection = ({ setShowNavbarAndFooter }) => {
         e.preventDefault()
         e.persist()
 
-        fetch(`http://103.191.208.50/~gewlisca/halofoto_new/api/remove-account/confirm`, {
+        fetch(`${API_BASE_URL}/remove-account/confirm`, {
             method: "POST",
             body: JSON.stringify({
                 "email": `${email}`,
@@ -68,7 +69,7 @@ const EmailSection = ({ setShowNavbarAndFooter }) => {
         e.preventDefault()
         e.persist()
 
-        fetch(`http://103.191.208.50/~gewlisca/halofoto_new/api/remove-account`, {
+        fetch(`${API_BASE_URL}/remove-account`, {
             method: "POST",
             body: JSON.stringify({ email, otp }),
             headers: {

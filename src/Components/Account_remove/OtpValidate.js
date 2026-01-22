@@ -6,6 +6,7 @@ import eye from '../Image/eye.svg'
 import eye_close from '../Image/eye_close.svg'
 import { Link, useLocation } from 'react-router-dom'
 import axios from 'axios'
+import { API_BASE_URL } from '../../config/apiConfig'
 
 const OtpValidate = () => {
   
@@ -32,7 +33,7 @@ const OtpValidate = () => {
         e.preventDefault()
         try {
             const response = await axios.post(
-                `http://103.191.208.50/~gewlisca/halofoto_new/api/remove-account`,
+                `${API_BASE_URL}/remove-account`,
                 { otp, email }
             )
         } catch (error) {
