@@ -454,7 +454,7 @@ const Coupon = () => {
         show={showModal}
         size="lg"
         onHide={handleClose}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}> 
           <Modal.Header closeButton>
             <Modal.Title>Voucher Management</Modal.Title>
           </Modal.Header>
