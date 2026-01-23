@@ -4,7 +4,7 @@ import { toast, ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
 import { AuthContext } from "./store/authContext";
 import "../Common/css/loader.css";
-import { searchMembershipById, getVoucherDetails, addWarranty, isCheckWarranty } from './Service/coupon-api'
+import { searchMembershipById, getVoucherDetails, addWarranty, isCheckWarranty, getViewVoucherRedeem, updateVoucherRedeem } from './Service/coupon-api'
 import { Table, Button, Modal } from 'react-bootstrap';
 import GlobalLoader from '../Common/GlobalLoader';
 import ClipLoader from "react-spinners/ClipLoader";
@@ -23,7 +23,7 @@ const defaultFormData = {
   date: '',
   minDate: '',
   maxDate: '',
-  status: ''
+  status: 'success'
 };
 
 const Coupon = () => {
@@ -38,6 +38,9 @@ const Coupon = () => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState(defaultFormData);
   const [alreadytaken, setAlreadyTaken] = useState(false);
+  const [existingInvoiceUrl, setExistingInvoiceUrl] = useState('');
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [redeemRecordId, setRedeemRecordId] = useState(null);
 
   const selectRef = useRef();
 
@@ -46,6 +49,7 @@ const Coupon = () => {
   }, []);
 
   useEffect(() => {
+    console.log("voucherData", voucherData);
     if (voucherData !== null) {
       setFormData(prevFormData => ({
         ...prevFormData, // Retain the previous values
@@ -63,7 +67,12 @@ const Coupon = () => {
 
   useEffect(() => {
     if (!showModal) {
+      // Only reset when modal is closed, not when opening
       setFormData(defaultFormData);
+      setExistingInvoiceUrl('');
+      setIsEditMode(false);
+      setRedeemRecordId(null);
+      setAlreadyTaken(false);
     }
   }, [showModal]);
 
@@ -94,18 +103,35 @@ const Coupon = () => {
       console.error("Authentication token is missing.");
       return;
     }
+    console.log('=== FORM SUBMIT ===');
+    console.log('Form submit - formData:', formData);
+    console.log('Form submit - isEditMode:', isEditMode);
+    console.log('Form submit - redeemRecordId:', redeemRecordId);
+    console.log('==================');
     setGlobalLoading(true);
     try {
-      const response = await addWarranty(authCtx.token.token, formData);
+      let response;
+      
+      // Check if we're in edit mode (if existingInvoiceUrl exists, we're editing)
+      if (isEditMode && redeemRecordId) {
+        // Update existing voucher redeem - use redeemRecordId (the id from response)
+        response = await updateVoucherRedeem(authCtx.token.token, redeemRecordId, formData);
+      } else {
+        // Create new warranty
+        response = await addWarranty(authCtx.token.token, formData);
+      }
+      
       if (response.status) {
         toast.success(response.message, { position: toast.POSITION.TOP_RIGHT, closeButton: true });
         setShowModal(false);
-        updateVoucherDetails(formData.id);
+        if (!isEditMode) {
+          updateVoucherDetails(formData.id);
+        }
       } else {
         setShowModal(true);
       }
     } catch (error) {
-      toast.error("Error fetching membership data:", error.message || error, { position: toast.POSITION.TOP_RIGHT, closeButton: true });
+      toast.error("Error saving data:", error.message || error, { position: toast.POSITION.TOP_RIGHT, closeButton: true });
     } finally {
       setGlobalLoading(false);
     }
@@ -122,14 +148,98 @@ const Coupon = () => {
       if (response.status) {
         setVoucherData(response.data);
         setShowModal(true);
-        setFormData({ ...formData, id: id });
+        setFormData({ ...formData, id: id, status: 'success' });
+        setIsEditMode(false); // New application, not edit mode
         console.log("Membership data found:", response.data);
       } else {
         setVoucherData(null);
-        setFormData({ ...formData, id: '' });
+        setFormData({ ...formData, id: '', status: 'success' });
+        setIsEditMode(false);
       }
     } catch (error) {
       console.error("Error fetching membership data:", error.message || error);
+    } finally {
+      setGlobalLoading(false);
+    }
+  };
+
+  const onViewEditVoucherHandle = async (id) => {
+    if (!authCtx?.token?.token) {
+      console.error("Authentication token is missing.");
+      return;
+    }
+    setGlobalLoading(true);
+    try {
+      // Get submitted warranty data
+      const redeemDataResponse = await getViewVoucherRedeem(authCtx.token.token, id);
+      
+      if (redeemDataResponse.status) {
+        // Handle array response - take first element if it's an array
+        let redeemData = redeemDataResponse.data;
+        if (Array.isArray(redeemData) && redeemData.length > 0) {
+          redeemData = redeemData[0];
+        }
+        
+        console.log("Redeem data found:", redeemData);
+        
+        // Store the redeem record ID (this is the ID used for update API)
+        setRedeemRecordId(redeemData.id);
+        
+        // Also fetch voucher details to populate product dropdown
+        let voucherDetailsData = null;
+        try {
+          const voucherDetailsResponse = await getVoucherDetails(authCtx.token.token, id);
+          if (voucherDetailsResponse.status) {
+            voucherDetailsData = voucherDetailsResponse.data;
+            setVoucherData(voucherDetailsData);
+          }
+        } catch (voucherError) {
+          console.warn("Could not fetch voucher details:", voucherError);
+          // Continue with redeem data only
+        }
+        
+        // Populate form with submitted data - map from response structure
+        const formDataToSet = {
+          id: id,
+          sellerName: redeemData.seller?.name || redeemData.seller_name || '',
+          voucherCode: redeemData.coupon_code || '',
+          fixValue: redeemData.fixed_value || '',
+          percentage: redeemData.coupon_percentage || redeemData.percentage || '',
+          userName: redeemData.user?.name || redeemData.user_name || '',
+          email: redeemData.user?.email || redeemData.user_email || '',
+          file: '', // File input can't be set from URL, user needs to re-upload if changing
+          modelNo: redeemData.model_no || redeemData.product?.model_no || '',
+          serialNo: redeemData.serial_no || '',
+          date: redeemData.date_of_purchase || '',
+          minDate: redeemData.vocher_start_date || redeemData.voucher_start_date || (voucherDetailsData?.vocher_start_date) || (voucherDetailsData?.voucher_start_date) || '',
+          maxDate: redeemData.voucher_end_date || (voucherDetailsData?.voucher_end_date) || '',
+          status: 'success'
+        };
+        
+        setFormData(formDataToSet);
+        
+        // Store existing invoice URL for display
+        setExistingInvoiceUrl(redeemData.invoice || '');
+        
+        // Set edit mode to true since we're viewing/editing existing data
+        setIsEditMode(true);
+        
+        // Set voucher data if product list is available in response but voucher details weren't fetched
+        if (redeemData.product && !voucherDetailsData) {
+          // Create a structure similar to what getVoucherDetails returns
+          setVoucherData({
+            product: [redeemData.product]
+          });
+        }
+        
+        setShowModal(true);
+      } else {
+        setVoucherData(null);
+        setFormData(defaultFormData);
+      }
+    } catch (error) {
+      console.error("Error fetching voucher redeem data:", error.message || error);
+      toast.error("Error loading voucher data", { position: toast.POSITION.TOP_RIGHT, closeButton: true });
     } finally {
       setGlobalLoading(false);
     }
@@ -171,7 +281,7 @@ const Coupon = () => {
             <button 
               type="button" 
               className="btn btn-info btn-sm"
-              onClick={() => onApplyVoucherHandle(item.voucher_id)}
+              onClick={() => onViewEditVoucherHandle(item.voucher_id)}
             >
               View/Edit
             </button>
@@ -224,10 +334,10 @@ const Coupon = () => {
     
       if (warrantyExists === false) {
         setAlreadyTaken(false)
-        setFormData((prevData) => ({ ...prevData, status: '' }));
+        setFormData((prevData) => ({ ...prevData, status: 'success' }));
       }else{
         setAlreadyTaken(true)
-        setFormData((prevData) => ({ ...prevData, status: 'pending' }));
+        setFormData((prevData) => ({ ...prevData, status: 'success' }));
       }
     
     } catch (error) {
@@ -241,7 +351,10 @@ const Coupon = () => {
 
   const handleClose = () => {
     setShowModal(false);
-    setAlreadyTaken(false)
+    setAlreadyTaken(false);
+    setExistingInvoiceUrl('');
+    setIsEditMode(false);
+    setRedeemRecordId(null);
   }
   return spinner ? (
     <div className="loader">
@@ -291,7 +404,7 @@ const Coupon = () => {
               </thead>
               <tbody>
                 {data?.voucher_list.map((item, index) => {
-  console.log("Voucher item:", item); // 👈 this will print each voucher object
+  //console.log("Voucher item:", item); // 👈 this will print each voucher object
   return (
     <tr key={index}>
       <td>{index + 1}</td>
@@ -343,7 +456,7 @@ const Coupon = () => {
         onHide={handleClose}>
         <form onSubmit={handleSubmit}>
           <Modal.Header closeButton>
-            <Modal.Title>Warranty Management</Modal.Title>
+            <Modal.Title>Voucher Management</Modal.Title>
           </Modal.Header>
           <Modal.Body>
 
@@ -448,6 +561,14 @@ const Coupon = () => {
                   onChange={(e) => setFormData({ ...formData, file: e.target.files[0] })} // Handles multiple files
                   className="form-control"
                 />
+                {existingInvoiceUrl && (
+                  <div className="mt-2">
+                    <small className="text-muted">Current invoice: </small>
+                    <a href={existingInvoiceUrl} target="_blank" rel="noopener noreferrer" className="ms-2">
+                      View existing invoice
+                    </a>
+                  </div>
+                )}
               </div>
 
 
@@ -536,9 +657,17 @@ const Coupon = () => {
             <Button
               variant="primary"
               type="submit"
-              disabled={formData.file && formData.modelNo && formData.serialNo && formData.date && formData.status ? false : true}
+              disabled={
+                formData.modelNo && 
+                formData.serialNo && 
+                formData.date && 
+                formData.status && 
+                (isEditMode ? (formData.file || existingInvoiceUrl) : formData.file)
+                  ? false 
+                  : true
+              }
             >
-              Create
+              {isEditMode ? 'Update' : 'Create'}
             </Button>
           </Modal.Footer>
         </form>
