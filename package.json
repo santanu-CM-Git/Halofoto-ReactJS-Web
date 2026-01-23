@@ -1,7 +1,7 @@
 {
   "name": "halofoto",
   "version": "0.1.0",
-  "homepage": "http://103.191.208.50/~gewlisca/halofoto-react",
+  "homepage": "/~gewlisca/halofoto-react",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=\"/~gewlisca/halofoto-react\" react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
