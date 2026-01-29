@@ -290,7 +290,7 @@ const Coupon = () => {
       case '2':
         return (
           <button type="button" className="btn btn-secondary btn-sm">
-            Unavailable
+            Tidak tersedia
           </button>
         );
       default:
@@ -404,7 +404,7 @@ const Coupon = () => {
               </thead>
               <tbody>
                 {data?.voucher_list.map((item, index) => {
-  //console.log("Voucher item:", item); // 👈 this will print each voucher object
+  console.log("Voucher item:", item); // 👈 this will print each voucher object
   return (
     <tr key={index}>
       <td>{index + 1}</td>
