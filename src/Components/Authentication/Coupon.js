@@ -269,21 +269,21 @@ const Coupon = () => {
             type="button"
             className="btn btn-primary btn-sm"
           >
-            {item?.voucher_code_apply}
+            {item?.voucher_code_apply == 'Already applied' ? 'Sudah Digunakan' : 'Gunakan'}
           </button>
         );
       case '1':
         return (
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             <button type="button" className="btn btn-warning btn-sm">
-              {item?.voucher_code_apply}
+              {item?.voucher_code_apply == 'Already applied' ? 'Sudah Digunakan' : 'Gunakan'}
             </button>
             <button 
               type="button" 
               className="btn btn-info btn-sm"
               onClick={() => onViewEditVoucherHandle(item.voucher_id)}
             >
-              View/Edit
+              Lihat/Edit
             </button>
           </div>
         );
@@ -365,7 +365,7 @@ const Coupon = () => {
   ) : (
     <div className="coupon__wrap">
       <div className="title-container">
-        <h3>Validate Voucher</h3>
+        <h3>Validasi Voucher</h3>
       </div>
       <div className="form-container">
         <div className="membership_form_group">
@@ -379,7 +379,7 @@ const Coupon = () => {
             onClick={() => onSearchHandler()}
             disabled={loading}
             type="button"
-            className="apply_btn">Apply</button>
+            className="apply_btn">Gunakan</button>
         </div>
       </div>
       {!loading && data !== null ?
@@ -392,14 +392,14 @@ const Coupon = () => {
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
-                  <th>SI No</th>
-                  <th>Name of Voucher</th>
-                  <th>Voucher Code</th>
-                  <th>Percentage (%)</th>
-                  <th>Fixed Value ($)</th>
-                  <th>Coupon Status</th>
-                  <th>Applied Date</th>
-                  <th>Action</th>
+                  <th>No</th>
+                  <th>Nama Voucher</th>
+                  <th>Kode Voucher</th>
+                  <th>Diskon (%)</th>
+                  <th>Diskon (Rp)</th>
+                  <th>Status Kupon</th>
+                  <th>Tanggal Digunakan</th>
+                  <th>Keterangan</th>
                 </tr>
               </thead>
               <tbody>
@@ -418,7 +418,7 @@ const Coupon = () => {
             item?.redeem_voucher_status == 1 ? 'bg-success' : 'bg-secondary'
           }`}
         >
-          {item?.redeem_voucher_status == 1 ? 'Active' : 'Not Active'}
+          {item?.redeem_voucher_status == 1 ? 'Aktif' : 'Tidak Aktif'}
         </span>
       </td>
       <td>{item?.applied_at}</td>
@@ -463,12 +463,12 @@ const Coupon = () => {
             <div className="row">
               {/* Seller Name Input */}
               <div className="form-group mb-3 col-6">
-                <label htmlFor="sellerName"><strong>Seller Name</strong><span className="text_red">*</span></label>
+                <label htmlFor="sellerName"><strong>Nama Toko</strong><span className="text_red">*</span></label>
                 <input
                   type="text"
                   name="sellerName"
                   id="sellerName"
-                  placeholder="Seller name"
+                  placeholder="Nama Toko"
                   value={formData.sellerName}
                   onChange={(e) => setFormData({ ...formData, sellerName: e.target.value })}
                   className="form-control"
@@ -478,12 +478,12 @@ const Coupon = () => {
 
               {/* Voucher Code Input */}
               <div className="form-group mb-3 col-6">
-                <label htmlFor="voucherCode"><strong>Voucher Redeemed Code</strong><span className="text_red">*</span></label>
+                <label htmlFor="voucherCode"><strong>Kode Voucher</strong><span className="text_red">*</span></label>
                 <input
                   type="text"
                   name="voucherCode"
                   id="voucherCode"
-                  placeholder="Redeemed code"
+                  placeholder="Kode Voucher"
                   value={formData.voucherCode}
                   onChange={(e) => setFormData({ ...formData, voucherCode: e.target.value })}
                   className="form-control"
@@ -493,12 +493,12 @@ const Coupon = () => {
               {/* Fix value  and persentage Input */}
               {formData.fixValue > 0 ?
                 <div className="form-group mb-3 col-6">
-                  <label htmlFor="fixValue"><strong>Fixed Value ($)</strong><span className="text_red">*</span></label>
+                  <label htmlFor="fixValue"><strong>Diskon (Rp)</strong><span className="text_red">*</span></label>
                   <input
                     type="text"
                     name="fixValue"
                     id="fixValue"
-                    placeholder="fix value"
+                    placeholder="Diskon (Rp)"
                     value={formData.fixValue}
                     onChange={(e) => setFormData({ ...formData, fixValue: e.target.value })}
                     className="form-control"
@@ -507,12 +507,12 @@ const Coupon = () => {
                 </div>
                 :
                 <div className="form-group mb-3 col-6">
-                  <label htmlFor="percentage"><strong>Percentage (%)</strong><span className="text_red">*</span></label>
+                  <label htmlFor="percentage"><strong>Diskon (%)</strong><span className="text_red">*</span></label>
                   <input
                     type="text"
                     name="percentage"
                     id="percentage"
-                    placeholder="percentage"
+                    placeholder="Diskon (%)"
                     value={formData.percentage}
                     onChange={(e) => setFormData({ ...formData, percentage: e.target.value })}
                     className="form-control"
@@ -522,12 +522,12 @@ const Coupon = () => {
               }
               {/* User Name Input */}
               <div className="form-group mb-3 col-6">
-                <label htmlFor="userName"><strong>User Name</strong><span className="text_red">*</span></label>
+                <label htmlFor="userName"><strong>Nama User</strong><span className="text_red">*</span></label>
                 <input
                   type="text"
                   name="userName"
                   id="userName"
-                  placeholder="user name"
+                  placeholder="Nama User"
                   value={formData.userName}
                   onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
                   className="form-control"
@@ -536,12 +536,12 @@ const Coupon = () => {
               </div>
               {/* User Email Input */}
               <div className="form-group mb-3 col-6">
-                <label htmlFor="email"><strong>User Email</strong><span className="text_red">*</span></label>
+                <label htmlFor="email"><strong>Email User</strong><span className="text_red">*</span></label>
                 <input
                   type="text"
                   name="email"
                   id="email"
-                  placeholder="email"
+                  placeholder="Email User"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="form-control"
@@ -556,16 +556,16 @@ const Coupon = () => {
                   type="file"
                   name="invoice"
                   id="invoice"
-                  placeholder="Choose files"
+                  placeholder="Pilih File"
                   accept="image/*"
                   onChange={(e) => setFormData({ ...formData, file: e.target.files[0] })} // Handles multiple files
                   className="form-control"
                 />
                 {existingInvoiceUrl && (
                   <div className="mt-2">
-                    <small className="text-muted">Current invoice: </small>
+                    <small className="text-muted">Invoice Saat Ini: </small>
                     <a href={existingInvoiceUrl} target="_blank" rel="noopener noreferrer" className="ms-2">
-                      View existing invoice
+                      Lihat Invoice Saat Ini
                     </a>
                   </div>
                 )}
@@ -574,7 +574,7 @@ const Coupon = () => {
 
               {/* Model No. Input */}
               <div className="form-group mb-3 col-6">
-                <label htmlFor="modelNo"><strong>Model No.</strong><span className="text_red">*</span></label>
+                <label htmlFor="modelNo"><strong>Model No</strong><span className="text_red">*</span></label>
                 <select
                   name="modelNo"
                   id="modelNo"
@@ -615,7 +615,7 @@ const Coupon = () => {
               {/* Date of Purchase Input */}
               <div className="form-group mb-3 col-6">
                 <label htmlFor="dateOfPurchase">
-                  <strong>Date of Purchase</strong>
+                  <strong>Tanggal Pembelian</strong>
                   <span className="text_red">*</span>
                 </label>
                 <input
@@ -634,7 +634,7 @@ const Coupon = () => {
 
               {/* status Input */}
               <div className="form-group mb-3 col-6">
-                <label htmlFor="status"><strong>Register Status</strong><span className="text_red">*</span></label>
+                <label htmlFor="status"><strong>Status Registrasi</strong><span className="text_red">*</span></label>
                 <select
                   ref={selectRef}
                   name="status"
@@ -643,16 +643,16 @@ const Coupon = () => {
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
                   className="form-control arrow-select"
                 >
-                  <option value="">Select Status</option>
-                  <option value="success">Success</option>
-                  <option value="pending">Pending</option>
+                  <option value="">Pilih Status</option>
+                  <option value="success">Sukses</option>
+                  <option value="pending">Tertunda</option>
                 </select>
               </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
-              Cancel
+              Batalkan
             </Button>
             <Button
               variant="primary"
@@ -667,7 +667,7 @@ const Coupon = () => {
                   : true
               }
             >
-              {isEditMode ? 'Update' : 'Create'}
+              {isEditMode ? 'Update' : 'Buat'}
             </Button>
           </Modal.Footer>
         </form>

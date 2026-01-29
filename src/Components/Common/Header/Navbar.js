@@ -128,7 +128,7 @@ const Navbar = () => {
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <Link to="/coupon">Validate Voucher</Link>
+                        <Link to="/coupon">Validasi Voucher</Link>
                       </li>
                       <li>
                         <Link to="/edit-profile">Edit Profile</Link>
