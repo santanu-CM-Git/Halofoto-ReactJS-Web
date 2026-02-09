@@ -26,6 +26,11 @@ const defaultFormData = {
   status: 'success'
 };
 
+const formatRupiah = (value) => {
+  if (!value || value == 0) return '-';
+  return Number(value).toLocaleString('id-ID');
+};
+
 const Coupon = () => {
 
   const authCtx = useContext(AuthContext);
@@ -155,9 +160,11 @@ const Coupon = () => {
         setVoucherData(null);
         setFormData({ ...formData, id: '', status: 'success' });
         setIsEditMode(false);
+        toast.error(response.message || "Failed to load voucher details", { position: toast.POSITION.TOP_RIGHT, closeButton: true });
       }
     } catch (error) {
       console.error("Error fetching membership data:", error.message || error);
+      toast.error("Error loading voucher details", { position: toast.POSITION.TOP_RIGHT, closeButton: true });
     } finally {
       setGlobalLoading(false);
     }
@@ -275,7 +282,11 @@ const Coupon = () => {
       case '1':
         return (
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <button type="button" className="btn btn-warning btn-sm">
+            <button
+              onClick={() => onApplyVoucherHandle(item.voucher_id)}
+              type="button"
+              className="btn btn-warning btn-sm"
+            >
               {item?.voucher_code_apply == 'Already applied' ? 'Sudah Digunakan' : 'Gunakan'}
             </button>
             <button 
@@ -411,7 +422,7 @@ const Coupon = () => {
       <td>{item?.voucher_name}</td>
       <td>{item?.voucher_code}</td>
       <td>{item?.percentage == 0 ? '-' : item?.percentage}</td>
-      <td>{item?.fixed_value == 0 ? '-' : item?.fixed_value}</td>
+      <td>{formatRupiah(item?.fixed_value)}</td>
       <td>
         <span
           className={`badge ${
@@ -499,7 +510,7 @@ const Coupon = () => {
                     name="fixValue"
                     id="fixValue"
                     placeholder="Diskon (Rp)"
-                    value={formData.fixValue}
+                    value={formData.fixValue ? Number(formData.fixValue).toLocaleString('id-ID') : ''}
                     onChange={(e) => setFormData({ ...formData, fixValue: e.target.value })}
                     className="form-control"
                     disabled={true}
