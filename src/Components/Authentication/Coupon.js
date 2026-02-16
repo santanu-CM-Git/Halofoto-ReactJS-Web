@@ -268,6 +268,9 @@ const Coupon = () => {
   };
 
   const renderButton = (item) => {
+    if (item?.redeem_voucher_status != 1) {
+      return null;
+    }
     switch (item.voucher_code_status.toString()) {
       case '0':
         return (
